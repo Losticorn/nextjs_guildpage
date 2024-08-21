@@ -1,0 +1,21 @@
+.manage{
+  margin-left: 10rem;
+  margin-right: 10rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  color: white;
+}
+
+.manage h1{
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.manage button{
+  border: none;
+  background-color: white;
+  padding: 1rem 2rem;
+  font-size: 1.3rem;
+}

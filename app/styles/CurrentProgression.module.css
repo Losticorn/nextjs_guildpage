@@ -1,0 +1,25 @@
+.current{
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.bossImg{
+  display: block;
+  height: 20rem;
+  width: auto;
+  border-radius: 2rem;
+  margin: 0;
+}
+
+.progress h1{
+  margin: 0rem 1.5rem;
+  font-size: 3rem;
+}
+
+

@@ -1,0 +1,32 @@
+.cardplatforms{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 10rem;
+  color: white;
+  margin: 5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.479);
+  border-radius: 25px;
+}
+
+.cardplatforms img{
+height: 160px;
+width: 160px;
+border-top-left-radius: 25px;
+border-top-right-radius: 25px;
+}
+
+.cardplatforms ul{
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.cardplatforms a{
+text-decoration: none;
+color: white;
+font-size: 0.7rem;
+}
+
+

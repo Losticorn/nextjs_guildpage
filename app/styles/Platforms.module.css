@@ -1,0 +1,42 @@
+.platforms{
+  max-width: 1500px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.platforms h1{
+  font-size: 3rem;
+  text-align: center;
+}
+
+.platforms ul{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.platforms p{
+  font-size: 1.5rem;
+  color: rgb(199, 199, 199);
+  line-height: 3rem;
+  background-image: linear-gradient(to bottom right, black,rgb(10,10,10),rgb(25, 25, 25), rgb(25, 25, 25));
+  border-radius: 20px;
+  padding: 1rem 1.5rem;
+  margin: 0;
+}
+
+@media(max-width: 1200px){
+  .platforms{
+    margin-inline: 1rem;
+    text-align: center;
+  }
+  .platforms h1{
+    font-size: 2.5rem;
+  }
+}
+

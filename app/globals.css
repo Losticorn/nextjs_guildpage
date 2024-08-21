@@ -1,0 +1,31 @@
+*{
+  font-family: var(--font-montaga);
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: rgb(25, 
+  25, 25);
+  color: white;
+}
+
+a{
+  text-decoration: none;
+}
+
+/*Scrollbar*/
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

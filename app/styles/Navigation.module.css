@@ -1,0 +1,125 @@
+.header {
+  margin: 0;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgb(15, 15,15);
+  font-size: 2rem;
+}
+
+.navigation{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 1450px;
+  max-width: 1500px;
+}
+
+.navigation img{
+  width: 6rem;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.loginbutton{
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 20px;
+  font-size: 1.0rem;
+  padding: 0.7rem 1.5rem;
+  margin: 0rem 0.5rem;
+}
+
+.account{
+  display: flex;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  list-style: none;
+}
+
+.list a {
+  text-decoration: none;
+  color: white;
+
+  padding: 0;
+}
+.active{
+  border: 1px solid #C21F26;
+}
+
+.togglebutton{
+  display: none;
+}
+
+.currentpage{
+  display: block;
+  color: white;
+  font-size: 2rem;
+  margin: 0.7rem;
+}
+
+
+@media(max-width: 1300px){
+  .navigation{
+    justify-content: center;
+    flex-direction: column;
+  }
+  .navigation img{
+    display: none;
+  }
+  .list{
+    margin: 0;
+    padding: 0;
+  }
+  .list li {
+    display: none;
+  }
+  .account{
+    display: none;
+  }
+  .togglebutton{
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+  .hamburgerlist{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+  }
+  .hamburgerlist a {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    padding: 0rem 0rem;
+  }
+  .hamburgeraccount{
+    display: block;
+  }
+}
+
+
+
+
+
+

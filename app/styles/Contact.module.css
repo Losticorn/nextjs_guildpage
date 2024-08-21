@@ -1,0 +1,36 @@
+.main{
+  max-width: 1500px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.main h1{
+  font-size: 3rem;
+  text-align: center;
+}
+
+.contact p{
+  font-size: 1.5rem;
+  line-height: 3rem;
+  color: rgb(199, 199, 199);
+  background-image: linear-gradient(to bottom right, black,rgb(10,10,10),rgb(25, 25, 25), rgb(25, 25, 25));
+  border-radius: 20px;
+  padding: 1rem 1.5rem;
+}
+
+@media(max-width: 1200px){
+  .main{
+    margin-inline: 1rem;
+  }
+  .main h1{
+    font-size: 2.5rem;
+  }
+  .main p{
+    font-size: 1.2rem;
+    line-height: 2.5rem;
+  }
+}

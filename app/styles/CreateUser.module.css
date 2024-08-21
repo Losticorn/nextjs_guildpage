@@ -1,0 +1,116 @@
+.createuser{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.createuser form{
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+}
+
+.createuser h2{
+  margin: 0;
+}
+
+.area{
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  padding: 1rem;
+  margin: 0;
+  margin-right: 0.5rem;
+  color: white;
+  border-radius: 20px;
+  width: 80%;
+}
+
+.submitarea{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  margin: 0;
+  color: white;
+  border-radius: 20px;
+}
+
+.area label{
+  font-size: 1.0rem;
+  margin-bottom: 0rem;
+}
+
+.area input{
+  background-color: rgb(80,80,80);
+  padding: 0.5rem;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border: none;
+}
+
+.area input::placeholder{
+  color: rgb(194, 194, 194);
+  font-size: 0.7rem;
+}
+
+.area select{
+  background-color: rgb(80,80,80);
+  padding: 0.5rem;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border: none;
+  color: white;
+}
+
+.checkbox{
+  display: flex;
+  justify-content: left;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.createuserbtn{
+  background-color: transparent;
+  color: white;
+  padding: 0.7rem 2rem;
+  border: 1px solid white;
+  border-radius: 25px;
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+.createuserbtn:hover{
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.submited{
+  background-color: greenyellow;
+  color: black;
+  padding: 0.7rem 2rem;
+  border: 1px solid black;
+  border-radius: 25px;
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,71 @@
+.applicationlist{
+  background-color: rgb(15, 15, 15);
+  list-style: none;
+  width: 30%;
+  border-radius: 1rem;
+  margin: 0.3rem;
+  font-size: 1rem;
+}
+
+.details{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem;
+  border-radius: 1rem;background-color: rgb(25, 25, 25);
+}
+
+.detailsarea{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.3rem 1rem;
+  margin: 0.1rem 0rem;
+  color: white;
+  border-radius: 1rem;
+  width: 90%;
+}
+
+.detailsarea p{
+  margin:0.2rem 0rem;
+}
+
+
+.input{
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: black;
+  margin: 0;
+  color: rgb(199, 199, 199);
+}
+
+.name{
+  text-align: center;
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.buttons{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0.5rem 0rem;
+}
+
+.accept{
+  border: none;
+  background-color: yellowgreen;
+  padding: 0.6rem 1.3rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  width: 35%;
+}
+
+.delete{
+  border: none;
+  background-color: red;
+  padding: 0.6rem 1.3rem;
+  font-size: 1.0rem;
+  border-radius: 1rem;
+}

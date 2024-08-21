@@ -1,0 +1,36 @@
+.modal{
+  top: 1rem;
+  left: 20rem;
+  right: 20rem;
+  bottom: 1rem;
+  background-color: rgba(15, 15, 15);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25%;
+  z-index: 999;
+  border: 1px solid white;
+  padding: 0;
+  color: white;
+}
+
+.modal h2{
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  margin: 1rem 0rem;
+}
+
+.backdrop{
+  display: block;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.692);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 998;
+}

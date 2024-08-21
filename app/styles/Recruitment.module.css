@@ -1,0 +1,144 @@
+.main{
+  max-width: 1500px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.main h1{
+  font-size: 3rem;
+}
+
+.top{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.currentclasses{
+  display: flex;
+  width: 50%;
+  max-width: 700px;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.currentclasses h2{
+  display: flex;
+  background-image: linear-gradient(to bottom right, black,rgb(10,10,10),rgb(25, 25, 25),rgb(25, 25, 25));
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  border-top-left-radius: 0px;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.currentclasses img{
+  width: 7rem;
+  height: auto;
+  border-radius: 3.5rem;
+  margin: 2rem 1rem;
+}
+
+.classes{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tab{
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+  font-size: 1.2rem;
+  padding: 1rem 1.5rem;
+  text-align: center;
+}
+
+.active {
+  border: none;
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 1rem 1.5rem;
+}
+
+
+.raidinfo{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  background-image: linear-gradient(to bottom right, black,rgb(10,10,10), rgb(10,10,10),rgb(25, 25, 25), rgb(25, 25, 25));
+  border-radius: 25px;
+  border-top-left-radius: 0px;
+  max-width: 750px;
+  margin-bottom: 2rem;
+}
+
+.tabmenu{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.raidinfo ul{
+  margin: 0;
+  padding: 0.5rem 1rem;
+}
+
+.raidinfo li{
+  margin: 1.3rem 2rem;
+  font-size: 1.3rem;
+  color: rgb(199, 199, 199);
+}
+
+.activeTabIndicator{
+  border: 1px solid red;
+}
+
+.joinbutton{
+  display: flex;
+  justify-content: center;
+}
+
+.joinbtn{
+  background-color: transparent;
+  display: flex;
+  color: white;
+  padding: 1rem 2rem;
+  border: 1px solid white;
+  border-radius: 25px;
+  font-size: 2rem;
+  bottom: 0rem;
+  position: relative;
+}
+
+@media(max-width: 1100px){
+  .main{
+    margin-inline: 1rem;
+
+  }
+  .main h1{
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .top{
+    justify-content: center;
+  }
+}
+
+
+
+
