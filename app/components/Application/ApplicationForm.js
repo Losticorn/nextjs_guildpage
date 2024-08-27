@@ -220,7 +220,7 @@ export default function ApplicationForm() {
         </div>
 
         <ReCAPTCHA
-          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}
+          sitekey={process.env.local.NEXT_PUBLIC_RECAPTCHA_SITEKEY}
           onChange={onChange}
         />
 
