@@ -11,5 +11,3 @@ const userSchema = new mongoose.Schema({
 });
 
 export const User = mongoose.models?.User || mongoose.model("User", userSchema);
-
-//this is what you adjust to your needs like name and password, you do not care about names

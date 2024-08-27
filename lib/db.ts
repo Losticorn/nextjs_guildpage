@@ -1,3 +1,5 @@
+// establish connection to your database and export connectDB
+
 import mongoose from "mongoose";
 
 const connectDB = async () => {
@@ -12,3 +14,6 @@ const connectDB = async () => {
 }
 
 export default connectDB;
+
+// Export a module-scoped MongoClient. By doing this in a
+// separate module, the client can be shared across functions.
