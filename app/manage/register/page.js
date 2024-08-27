@@ -13,24 +13,6 @@ const Register = async () => {
 
       <form action={register}>
         <div className={classes.area}>
-          <label htmlFor="firstname">First Name</label>
-          <input
-            id="firstname"
-            placeholder="Name"
-            type="text"
-            name="firstname"
-          />
-        </div>
-        <div className={classes.area}>
-          <label htmlFor="lastname">Last Name</label>
-          <input
-            id="lastname"
-            placeholder="Nickname"
-            type="text"
-            name="lastname"
-          />
-        </div>
-        <div className={classes.area}>
           <label htmlFor="email">Email Address</label>
           <input
             id="email"

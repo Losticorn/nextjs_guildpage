@@ -1,11 +1,24 @@
-import NextAuth, { CredentialsSignin } from "next-auth";
+import NextAuth, { CredentialsSignin, DefaultSession } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import connectDB from "./lib/db";
-import { User } from "./models/User";
-import { compare } from "bcryptjs"
+import { compare } from "bcryptjs";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import { prisma } from "./lib/prisma";
+import { Role, User as PrismaUser } from "@prisma/client";
+
+interface UserCredentials {
+  email?: string;
+  password?: string;
+}
+
+declare module "next-auth"{
+  interface Session { user: {id: string, role: Role} & DefaultSession["user"]}
+  //interface User extends PrismaUser{} 
+  interface JWT { id: string, role: Role }
+}
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-
+  adapter: PrismaAdapter(prisma),
+  session: { strategy: "jwt" },
   providers: [
     Credentials({
       name: "Credentials",
@@ -15,23 +28,17 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
 
-      authorize: async (credentials) => {
-        const email = credentials.email as string | undefined;
-        const password = credentials.password as string | undefined;
+      authorize: async (credentials: UserCredentials) => {
+        const email = credentials.email;
+        const password = credentials.password;
 
         if (!email || !password) {
           throw new CredentialsSignin("Please provide both email & password");
         }
 
-        await connectDB();
-
-        const user = await User.findOne({ email }).select("+password +role");
+        const user = await prisma.user.findUnique({ where: { email } });
 
         if (!user) {
-          throw new Error("Invalid email or password");
-        }
-
-        if (!user.password) {
           throw new Error("Invalid email or password");
         }
 
@@ -42,11 +49,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         }
 
         const userData = {
-          firstName: user.firstName,
-          lastName: user.lastName,
           email: user.email,
           role: user.role,
-          id: user._id,
+          id: user.id,
         };
 
         return userData;
@@ -59,43 +64,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
 
   callbacks: {
-    async session({ session, token }) {
-      if (token?.sub && token?.role) {
-        session.user.id = token.sub as string;
-        session.user.role = token.role as string;
-      }
-      return session;
-    },
-
-    async jwt({ token, user }) {
+    jwt({ token, user }) {
       if (user) {
+        token.id = user.id
+        //@ts-ignore
         token.role = user.role;
       }
       return token;
     },
-
-    signIn: async ({ user, account }) => {
-      if (account?.provider === "google") {
-        try {
-          const { email, name, image, id } = user;
-          await connectDB();
-          const alreadyUser = await User.findOne({ email });
-
-          if (!alreadyUser) {
-            await User.create({ email, name, image, authProviderId: id });
-          } else {
-            return true;
-          }
-        } catch (error) {
-          throw new Error("Error while creating user");
-        }
-      }
-
-      if (account?.provider === "credentials") {
-        return true;
-      } else {
-        return false;
-      }
+    session({ session, token }) {
+      //@ts-ignore
+      session.user.id = token.id;
+      //@ts-ignore
+      session.user.role = token.role;
+      return session;
     },
   },
 });

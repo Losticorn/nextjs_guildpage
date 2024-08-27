@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server";
 
-// handler
+// prerob na prismu
 export async function POST(request) {
   try {
     const data = await request.json();
