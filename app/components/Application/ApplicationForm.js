@@ -25,7 +25,6 @@ async function addApplicationHandler(enteredApplicationData) {
     }
 
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.error(error);
@@ -45,7 +44,6 @@ export default function ApplicationForm() {
   } = useForm();
 
   const role = watch("role");
-  console.log(role);
 
   const roleClasses = useMemo(() => {
     switch (role) {
