@@ -24,7 +24,6 @@ export async function POST(request) {
     const applicationsCollection = db.collection("application");
 
     const result = await applicationsCollection.insertOne(data);
-    console.log(result);
 
     client.close();
 

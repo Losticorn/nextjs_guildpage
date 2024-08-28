@@ -39,7 +39,6 @@ const register = async (formData: FormData) => {
   const hashedPassword = await hash(password, 12);
 
   await prisma.user.create({data: {email, password: hashedPassword} });
-  console.log(`User created successfully 🥂`);
   redirect("/login");
 };
 
