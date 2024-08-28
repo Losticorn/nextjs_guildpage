@@ -1,7 +1,8 @@
-import { MongoClient } from "mongodb";
+import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 
-// prerob na prismu
+const prisma = new PrismaClient();
+
 export async function POST(request) {
   try {
     const data = await request.json();
@@ -18,14 +19,21 @@ export async function POST(request) {
       id,
     } = data;
 
-    const client = await MongoClient.connect(process.env.MONGO_URI);
-
-    const db = client.db();
-    const applicationsCollection = db.collection("application");
-
-    const result = await applicationsCollection.insertOne(data);
-
-    client.close();
+    // Insert the data into the database using Prisma
+    const result = await prisma.application.create({
+      data: {
+        name,
+        discord,
+        raidtype,
+        role,
+        main,
+        logs,
+        mic,
+        ui,
+        attendance,
+        id,
+      },
+    });
 
     return NextResponse.json(
       {
@@ -41,5 +49,7 @@ export async function POST(request) {
       },
       { status: 500 }
     );
+  } finally {
+    await prisma.$disconnect();
   }
 }
