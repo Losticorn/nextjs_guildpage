@@ -1,10 +1,12 @@
 .footer{
-  display: block;
+  display: flex;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: rgb(20,20,20);
+  justify-content: center;
+  align-items: center;
 }
 
 .footer p{
@@ -12,5 +14,10 @@
   padding: 0.5rem 0rem;
   text-align: center;
   font-size: 0.8rem;
-  color: rgb(199, 199, 199);;
+  color: rgb(199, 199, 199);
+}
+
+.footer a{
+  text-decoration: none;
+  color: rgb(199, 199, 199);
 }

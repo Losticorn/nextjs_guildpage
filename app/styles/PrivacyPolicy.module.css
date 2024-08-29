@@ -1,0 +1,13 @@
+.main{
+  display: flex;
+  flex-direction: column;
+  max-width: 1500px;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.main h1{
+  text-align: center;
+}

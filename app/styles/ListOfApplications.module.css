@@ -3,6 +3,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin: 0;
+  margin-bottom: 4rem;
   padding: 0;
   gap: 1rem;
 }
