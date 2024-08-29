@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { signOut } from "../../../auth";
 import Button from "../Header/Buttons";
+import { CiLogin, CiLogout } from "react-icons/ci";
 
 export default async function AuthButtons({ user }) {
   console.log(user);
@@ -8,7 +9,9 @@ export default async function AuthButtons({ user }) {
     <div>
       {!user ? (
         <Link href="/login">
-          <Button title="Login" />
+          <Button title="Login">
+            <CiLogin />
+          </Button>
         </Link>
       ) : (
         <form
@@ -17,7 +20,9 @@ export default async function AuthButtons({ user }) {
             await signOut();
           }}
         >
-          <Button title="Logout" />
+          <Button title="Logout">
+            <CiLogout />
+          </Button>
         </form>
       )}
     </div>

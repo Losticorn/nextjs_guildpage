@@ -9,8 +9,8 @@
 
 .footer p{
   margin: 0;
-  padding: 0;
+  padding: 0.5rem 0rem;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: rgb(199, 199, 199);;
 }

@@ -8,7 +8,8 @@ import { useMutation } from "@tanstack/react-query";
 import InputText from "../../components/InputText";
 import InputRadio from "../../components/InputRadio";
 import InputSelect from "../../components/InputSelect";
-import classes from "../../styles/Application.module.css";
+import classes from "../../styles/ApplicationForm.module.css";
+import { useRouter } from "next/navigation";
 
 async function addApplicationHandler(enteredApplicationData) {
   try {
@@ -34,6 +35,7 @@ async function addApplicationHandler(enteredApplicationData) {
 
 export default function ApplicationForm() {
   const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
+  const router = useRouter();
 
   const {
     setValue,
@@ -71,7 +73,7 @@ export default function ApplicationForm() {
 
   function onFinishApplication() {
     console.log("Application successfully submitted!");
-    // add redirect once it works
+    router.push("/");
   }
 
   const onSubmit = (data) => {
@@ -196,8 +198,8 @@ export default function ApplicationForm() {
             id="ui"
             name="ui"
             control={control}
-            label="UI in the raid encounter"
-            placeholder="Enter link where we can see the screenshot (i.e. Gyazo etc.)"
+            label="UI in the raid encounter. You can use online tools (i.e. Gyazo etc.)"
+            placeholder="Enter link"
             rules={{ required: "UI screenshot link is required" }}
           />
           {errors.ui && <p className={classes.error}>{errors.ui.message}</p>}

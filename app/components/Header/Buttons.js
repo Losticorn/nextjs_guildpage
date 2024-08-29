@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import classes from "../../styles/Buttons.module.css";
 
-export default function Button({ title }) {
+export default function Button({ title, children }) {
   return (
     <motion.button
       className={classes.custombutton}
@@ -14,6 +14,7 @@ export default function Button({ title }) {
         color: "black",
       }}
     >
+      {children}
       {title}
     </motion.button>
   );

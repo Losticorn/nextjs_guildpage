@@ -1,0 +1,12 @@
+.main{
+  max-width: 1500px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main h1{
+  font-size: 2rem;
+  text-align: center;
+}

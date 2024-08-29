@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import ReactQueryProvider from "./reactQueryProvider";
 import { Montaga } from "next/font/google";
+import Footer from "./components/Footer";
 
 const montagaFont = Montaga({
   subsets: ["latin"],
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
       <body className={montagaFont.variable}>
         <Header />
         <ReactQueryProvider>{children}</ReactQueryProvider>
+        <Footer />
       </body>
     </html>
   );

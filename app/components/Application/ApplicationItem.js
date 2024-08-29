@@ -1,44 +1,14 @@
 "use client";
-
-import { useState } from "react";
-import classes from "../../styles/ApplicationItem.module.css";
 import Link from "next/link";
-
-async function deleteApplicationHandler(id, setUsers) {
-  const response = await fetch("/api/delete-application", {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ id }),
-  });
-
-  if (response.ok) {
-    setUsers((values) => values.filter((item) => item.id !== id));
-  } else {
-    console.error("Failed to delete application");
-  }
-}
+import classes from "../../styles/ApplicationItem.module.css";
+import { deleteApplication } from "../../../action/user";
+import Button from "../Header/Buttons";
 
 export default function ApplicationItem(props) {
-  const [isCopied, setIsCopied] = useState(false);
-  const [users, setUsers] = useState([]);
-
-  function copyDiscord() {
-    navigator.clipboard.writeText(props.discord);
-    setIsCopied(true);
-  }
-
-  setTimeout(() => {
-    setIsCopied(false);
-  }, 1500);
-
   return (
     <li className={classes.applicationlist}>
+      <h1 className={classes.name}>{props.name}</h1>
       <div className={classes.details}>
-        <div className={classes.detailsarea}>
-          <h1 className={classes.name}>{props.name}</h1>
-        </div>
         <div className={classes.detailsarea}>
           <p className={classes.label}>Discord</p>
           <p className={classes.input}>{props.discord}</p>
@@ -65,7 +35,6 @@ export default function ApplicationItem(props) {
           <p className={classes.label}>Do you have working microphone?</p>
           <p className={classes.input}>{props.mic}</p>
         </div>
-
         <div className={classes.detailsarea}>
           <p className={classes.label}>UI in combat</p>
           <Link href={props.ui} target="_blank">
@@ -83,20 +52,17 @@ export default function ApplicationItem(props) {
           <p className={classes.label}>ID</p>
           <p className={classes.input}>{props.id}</p>
         </div>
-        <div className={classes.buttons}>
-          <button onClick={copyDiscord} className={classes.accept}>
-            {!isCopied ? "Accept" : "Discord copied"}
-          </button>
-          <button
-            onClick={() => deleteApplicationHandler(props.id, setUsers)}
-            className={classes.delete}
-          >
-            Delete
-          </button>
-        </div>
+      </div>
+      <div className={classes.buttons}>
+        <Button className={classes.accept} title="Accept" />
+        <Button
+          title="Delete"
+          onClick={async () => {
+            await deleteApplication(props.id);
+            window.location.reload();
+          }}
+        />
       </div>
     </li>
   );
 }
-
-//accept copy discordID

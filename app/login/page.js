@@ -22,6 +22,7 @@ const Login = async () => {
             name="email"
           />
         </div>
+
         <div className={classes.area}>
           <label htmlFor="email">Password</label>
           <input

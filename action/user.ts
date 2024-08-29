@@ -28,17 +28,17 @@ const register = async (formData: FormData) => {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
 
-  if ( !email || !password) {
+  if (!email || !password) {
     throw new Error("Please fill all fields");
   }
 
   // existing user
-  const existingUser = await prisma.user.findUnique({where: {email}});
+  const existingUser = await prisma.user.findUnique({ where: { email } });
   if (existingUser) throw new Error("User already exists");
 
   const hashedPassword = await hash(password, 12);
 
-  await prisma.user.create({data: {email, password: hashedPassword} });
+  await prisma.user.create({ data: { email, password: hashedPassword } });
   redirect("/login");
 };
 
@@ -47,4 +47,40 @@ const fetchAllUsers = async () => {
   return users;
 };
 
-export { register, login, fetchAllUsers };
+const fetchAllApplications = async () => {
+  const applications = await prisma.application.findMany();
+  console.log(applications);
+  return applications;
+};
+
+const deleteApplication = async (id) => {
+  try {
+    // Check if the application exists
+    const application = await prisma.application.findUnique({
+      where: { id: id },
+    });
+
+    if (!application) {
+      console.error(`Application with ID ${id} does not exist.`);
+      return; // Optionally, you could throw an error or handle it differently
+    }
+
+    // Proceed with deletion if the application exists
+    const deletedApplication = await prisma.application.delete({
+      where: { id: id },
+    });
+
+    console.log('Deleted Application:', deletedApplication);
+  } catch (error) {
+    console.error('Error deleting application:', error);
+  }
+};
+
+
+export {
+  register,
+  login,
+  fetchAllUsers,
+  fetchAllApplications,
+  deleteApplication,
+};
