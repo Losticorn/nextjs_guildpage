@@ -15,7 +15,7 @@ export default function CurrentProgression() {
         <Image className={classes.bossImg} src={fyrakk} />
       </div>
       <div className={classes.progress}>
-        <h1>13.0%</h1>
+        <h1>58.8%</h1>
       </div>
     </motion.div>
   );
