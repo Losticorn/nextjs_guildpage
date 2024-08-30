@@ -73,7 +73,7 @@ export default function Recruitment() {
               Currently recruiting:
               <Tooltip
                 className={classes.tooltip}
-                title="If you are exceptional player, do not hesitate to contact officers!"
+                title="If you are an exceptional player, do not hesitate to contact officers!"
                 position="top"
               >
                 <IoIosInformationCircleOutline size={30} />
