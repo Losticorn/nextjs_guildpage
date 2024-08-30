@@ -11,7 +11,7 @@ export const raiding = [
     "friendly banter",
     "zero tolerance towards toxicity of any kind",
   ],
-  ["grow strong and great WoW community", "achieve Cutting Edge"],
+  ["grow a strong and great WoW community", "achieve Cutting Edge"],
   [
     "Amirdrassil, the Dream's Hope 8/9 M, Fyrakk 58.8 %",
     "Aberrus, the Shadowed Crucible 7/9 M",
