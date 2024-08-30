@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import classes from "../../styles/ApplicationItem.module.css";
-import { deleteApplication } from "../../../action/user";
 import Button from "../Header/Buttons";
+import { deleteApplication } from "../../../action/user";
 
 export default function ApplicationItem(props) {
   return (
@@ -48,18 +48,13 @@ export default function ApplicationItem(props) {
           </p>
           <p className={classes.input}>{props.attendance}</p>
         </div>
-        <div className={classes.detailsarea}>
-          <p className={classes.label}>ID</p>
-          <p className={classes.input}>{props.id}</p>
-        </div>
       </div>
       <div className={classes.buttons}>
-        <Button className={classes.accept} title="Accept" />
+        <Button title="Accept" />
         <Button
           title="Delete"
-          onClick={async () => {
-            await deleteApplication(props.id);
-            window.location.reload();
+          onClick={() => {
+            deleteApplication(props.id);
           }}
         />
       </div>

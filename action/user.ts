@@ -54,28 +54,9 @@ const fetchAllApplications = async () => {
 };
 
 const deleteApplication = async (id) => {
-  try {
-    // Check if the application exists
-    const application = await prisma.application.findUnique({
-      where: { id: id },
-    });
-
-    if (!application) {
-      console.error(`Application with ID ${id} does not exist.`);
-      return; // Optionally, you could throw an error or handle it differently
-    }
-
-    // Proceed with deletion if the application exists
-    const deletedApplication = await prisma.application.delete({
-      where: { id: id },
-    });
-
-    console.log('Deleted Application:', deletedApplication);
-  } catch (error) {
-    console.error('Error deleting application:', error);
-  }
-};
-
+  const deleteApp = await prisma.application.delete({where: {id: id} });
+  return deleteApp;
+}
 
 export {
   register,
