@@ -37,7 +37,7 @@ export default function Home() {
           </motion.li>
 
           <motion.li variants={item}>
-            Are you up to playing with like-minded people?
+            Want to play with people who share your interests?
           </motion.li>
 
           <motion.li variants={item}>
