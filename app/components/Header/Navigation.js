@@ -75,15 +75,6 @@ export default function Navigation({ user }) {
         <Image src={guildbanner} alt="Guild Banner" />
       </Link>
       <ul className={classes.list}>
-        {filteredNavigation.map((navItem) => (
-          <NavigationList
-            {...navItem}
-            key={navItem.id}
-            isSelected={navItem.id === selectedId}
-            onClick={() => handleSelect(navItem.id, navItem.name)}
-          />
-        ))}
-
         <motion.button
           className={classes.togglebutton}
           onClick={handleToggleOn}
