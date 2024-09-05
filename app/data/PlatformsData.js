@@ -39,6 +39,6 @@ export const platforms = [
     id: 7,
     name: "Guild Discord",
     img: "/discordlogo.jpg",
-    url: "/contact",
+    url: "https://discord.gg/nV3HMhVSR7",
   },
 ];

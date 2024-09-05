@@ -1,6 +1,5 @@
 "use client";
 
-import classes from "../styles/Card.module.css";
 import { motion } from "framer-motion";
 import { FaCopy } from "react-icons/fa6";
 import { useState } from "react";
@@ -39,21 +38,25 @@ const CardListItem = (props) => {
     <motion.li
       variants={item}
       whileHover={{ scale: 1.1 }}
-      className={classes.card}
+      className="flex flex-col justify-center w-[12rem] m-4 mb-16 p-6 text-white bg-black rounded-3xl border-[1px]"
     >
-      <img src={props.character.image} alt="picture are not loaded" />
-      <h2>{props.character.name}</h2>
-      <h3>{props.character.role}</h3>
-      <div className={classes.contact}>
+      <img
+        className="rounded-full"
+        src={props.character.image}
+        alt="picture are not loaded"
+      />
+      <h2 className="text-2xl mb-2">{props.character.name}</h2>
+      <h3 className="text-md text-[#c7c7c7] mb-2">{props.character.role}</h3>
+      <div>
         {!isCopied && (
           <motion.button
             whileHover={{ cursor: "pointer" }}
-            className={classes.copyBtn}
+            className="flex flex-row justify-center items-center text-white bg-transparent w-full mt-2 gap-1"
             onClick={copyDiscord}
           >
             <Image
               src={discordlogo}
-              className={classes.discordlogo}
+              className="w-6 rounded-full"
               alt="discord"
             />
             <p>{props.character.discord}</p>
@@ -64,7 +67,7 @@ const CardListItem = (props) => {
           <motion.p
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            className={classes.copy}
+            className="bg-lime-400 rounded-b-xl"
           >
             Copied!
           </motion.p>
@@ -80,7 +83,7 @@ export default function Card() {
       variants={container}
       initial="hidden"
       animate="show"
-      className={classes.list}
+      className="flex flex-row flex-wrap items-center text-center m-0 p-0 gap-4"
     >
       {characters.map((character) => {
         return <CardListItem character={character} key={character.id} />;

@@ -8,8 +8,8 @@ import { useMutation } from "@tanstack/react-query";
 import InputText from "../../components/InputText";
 import InputRadio from "../../components/InputRadio";
 import InputSelect from "../../components/InputSelect";
-import classes from "../../styles/ApplicationForm.module.css";
 import { useRouter } from "next/navigation";
+import Area from "../Area";
 
 async function addApplicationHandler(enteredApplicationData) {
   try {
@@ -95,10 +95,13 @@ export default function ApplicationForm() {
   }
 
   return (
-    <main className={classes.main}>
-      <h1>Application Form</h1>
-      <form className={classes.application} onSubmit={handleSubmit(onSubmit)}>
-        <div className={classes.area}>
+    <main className="flex flex-col justify-center items-center m-auto max-w-[1500px]">
+      <h1 className="text-6xl py-4 text-white my-6 ">Application Form</h1>
+      <form
+        className="flex flex-col items-center rounded-3xl mb-4"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <Area>
           <InputText
             id="name"
             name="name"
@@ -110,8 +113,8 @@ export default function ApplicationForm() {
           {errors.name && (
             <p className={classes.error}>{errors.name.message}</p>
           )}
-        </div>
-        <div className={classes.area}>
+        </Area>
+        <Area>
           <InputText
             id="discord"
             name="discord"
@@ -123,9 +126,9 @@ export default function ApplicationForm() {
           {errors.discord && (
             <p className={classes.error}>{errors.discord.message}</p>
           )}
-        </div>
+        </Area>
 
-        <div className={classes.area}>
+        <Area>
           <InputRadio
             id="raidtype"
             label="What level of raiding are you interested in?"
@@ -137,9 +140,9 @@ export default function ApplicationForm() {
           {errors.raidtype && (
             <p className={classes.error}>{errors.raidtype.message}</p>
           )}
-        </div>
+        </Area>
 
-        <div className={classes.area}>
+        <Area>
           <InputSelect
             id="role"
             label="Choose your role:"
@@ -151,9 +154,9 @@ export default function ApplicationForm() {
           {errors.role && (
             <p className={classes.error}>{errors.role.message}</p>
           )}
-        </div>
+        </Area>
 
-        <div className={classes.area}>
+        <Area>
           <InputSelect
             id="main"
             label="Choose your main:"
@@ -165,9 +168,9 @@ export default function ApplicationForm() {
           {errors.main && (
             <p className={classes.error}>{errors.main.message}</p>
           )}
-        </div>
+        </Area>
 
-        <div className={classes.area}>
+        <Area>
           <InputText
             id="logs"
             name="logs"
@@ -179,9 +182,9 @@ export default function ApplicationForm() {
           {errors.logs && (
             <p className={classes.error}>{errors.logs.message}</p>
           )}
-        </div>
+        </Area>
 
-        <div className={classes.area}>
+        <Area>
           <InputRadio
             id="mic"
             label="Do you have a working microphone?"
@@ -191,9 +194,9 @@ export default function ApplicationForm() {
             rules={{ required: "Microphone status is required" }}
           />
           {errors.mic && <p className={classes.error}>{errors.mic.message}</p>}
-        </div>
+        </Area>
 
-        <div className={classes.area}>
+        <Area>
           <InputText
             id="ui"
             name="ui"
@@ -203,9 +206,9 @@ export default function ApplicationForm() {
             rules={{ required: "UI screenshot link is required" }}
           />
           {errors.ui && <p className={classes.error}>{errors.ui.message}</p>}
-        </div>
+        </Area>
 
-        <div className={classes.area}>
+        <Area>
           <InputRadio
             id="attendance"
             label="We raid on Monday and Wednesday, 20:00-23:00 CEST. Are you sure you can commit to this schedule?"
@@ -217,16 +220,20 @@ export default function ApplicationForm() {
           {errors.attendance && (
             <p className={classes.error}>{errors.attendance.message}</p>
           )}
-        </div>
+        </Area>
 
         <ReCAPTCHA
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}
           onChange={onChange}
         />
 
-        <div className={classes.submitarea}>
+        <div className="flex flex-col items-center p-4 m-2 text-white rounded-3xl">
           <button
-            className={isPending ? classes.submited : classes.submitbtn}
+            className={
+              isPending
+                ? "bg-lime-400 text-black px-12 py-2 border-[1px] border-black rounded-3xl text-xl w-full"
+                : "bg-transparent text-white px-12 py-2 border-[1px] border-white rounded-3xl text-xl w-full hover-bg-white hover-bg-black hover-pointer"
+            }
             type="submit"
             title="Submit"
             disabled={!isCaptchaVerified}

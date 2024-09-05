@@ -1,5 +1,4 @@
 import { useController } from "react-hook-form";
-import classes from "../styles/InputSelect.module.css";
 
 export default function InputSelect({
   onChange,
@@ -22,8 +21,16 @@ export default function InputSelect({
 
   return (
     <>
-      <label htmlFor={id}>{label}</label>
-      <select id={id} onChange={onChange} {...rest} {...field}>
+      <label className="text-xl mb-0" htmlFor={id}>
+        {label}
+      </label>
+      <select
+        className="p-2 rounded-3xl border-none text-white bg-[#505050]"
+        id={id}
+        onChange={onChange}
+        {...rest}
+        {...field}
+      >
         <option value="" disabled selected>
           Please select...
         </option>
@@ -33,7 +40,9 @@ export default function InputSelect({
           </option>
         ))}
       </select>
-      {invalid && <p className={classes.error}>This cannot be empty!</p>}
+      {invalid && (
+        <p className="text-red m-0 p-0 text-xl">This cannot be empty!</p>
+      )}
     </>
   );
 }

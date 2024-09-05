@@ -1,5 +1,4 @@
 import { useController } from "react-hook-form";
-import classes from "../styles/InputText.module.css";
 
 export default function InputText({
   label,
@@ -20,9 +19,22 @@ export default function InputText({
 
   return (
     <>
-      <label htmlFor={id}>{label}</label>
-      <input className={invalid ? "error" : ""} id={id} {...rest} {...field} />
-      {invalid && <p className={classes.error}>This cannot be empty!</p>}
+      <label className="text-xl mb-0" htmlFor={id}>
+        {label}
+      </label>
+      <input
+        className={
+          invalid
+            ? "text-red m-0 p-0 text-xl"
+            : "p-2 rounded-3xl text-white border-none placeholder:text-[#c2c2c2] placeholder:text-sm bg-[#505050]"
+        }
+        id={id}
+        {...rest}
+        {...field}
+      />
+      {invalid && (
+        <p className="text-red m-0 p-0 text-xl">This cannot be empty!</p>
+      )}
     </>
   );
 }

@@ -1,13 +1,12 @@
 import { fetchAllApplications } from "../../../action/user";
 import ApplicationItem from "../Application/ApplicationItem";
-import classes from "../../styles/ListOfApplications.module.css";
 
 export default async function ListOfApplications() {
   const applications = await fetchAllApplications();
 
   return (
     <>
-      <ul className={classes.applicationslist}>
+      <ul className="flex flex-row flex-wrap m-0 mb-16 p-0 gap-1">
         {applications.map((app) => (
           <ApplicationItem
             name={app.name}

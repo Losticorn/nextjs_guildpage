@@ -37,7 +37,7 @@ export const characters = [
   {
     id: 6,
     name: "Buffed",
-    role: "Officer",
+    role: "Boosting",
     discord: "trihard",
     image: "/warrior-arms.jpg",
   },

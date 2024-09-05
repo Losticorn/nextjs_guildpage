@@ -1,13 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import classes from "../../styles/Buttons.module.css";
 
 export default function Button({ title, children, onClick }) {
   return (
     <motion.button
       onClick={onClick}
-      className={classes.custombutton}
+      className="flex items-center text-white px-8 py-2 border-[1px] border-white rounded-3xl gap-2 text-lg bg-transparent"
       whileHover={{
         scale: 1.1,
         cursor: "pointer",

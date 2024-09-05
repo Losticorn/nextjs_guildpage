@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "auth.js", "lib/db.js", "app/components/Application/Applications.js"],
+, "auth.js", "lib/db.js", "app/components/Application/Applications.js", "app/components/Application/ApplicationList.js", "app/components/Application/ApplicationList.js", "app/components/Application/ApplicationList.js"],
   "exclude": [
     "node_modules"
   ]
