@@ -1,5 +1,4 @@
 import { useController } from "react-hook-form";
-import classes from "../styles/InputRadio.module.css";
 import { useState, useEffect } from "react";
 
 export default function InputText({
@@ -29,11 +28,14 @@ export default function InputText({
 
   return (
     <>
-      <label htmlFor={id}>{label}</label>
-      <div className={classes.checkbox}>
+      <label className="text-xl mb-0" htmlFor={id}>
+        {label}
+      </label>
+      <div className="flex justify-left gap-4 m-2">
         {options.map((option, index) => (
-          <div key={option}>
+          <div className="flex items-center gap-1" key={option}>
             <input
+              className="w-4 h-4"
               onChange={(e) => {
                 const selectedValue = e.target.value;
                 setValue(selectedValue);
@@ -50,7 +52,9 @@ export default function InputText({
           </div>
         ))}
       </div>
-      {showError && <p className={classes.error}>You have to choose!</p>}
+      {showError && (
+        <p className="text-red m-0 p-0 text-xl">You have to choose!</p>
+      )}
     </>
   );
 }

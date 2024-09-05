@@ -2,17 +2,16 @@
 
 import { navigation } from "../../data/NavigationData";
 import { useState, useEffect, useMemo } from "react";
-import { usePathname } from "next/navigation"; // Hook to get the current path
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { GiHamburgerMenu } from "react-icons/gi";
-import classes from "../../styles/Navigation.module.css";
 import guildbanner from "/public/DZTB_LOGO.png";
 
-function NavigationList({ path, name, id, isSelected, onClick }) {
+function NavigationList({ path, name, id, isSelected, onClick, className }) {
   return (
-    <motion.li>
+    <motion.li className={className}>
       <Link href={path} onClick={onClick}>
         {name}
       </Link>
@@ -20,8 +19,8 @@ function NavigationList({ path, name, id, isSelected, onClick }) {
         {isSelected && (
           <motion.div
             key={id}
-            layoutId={classes.active}
-            className={classes.active}
+            layoutId="border-[1px] border-[#C21F26]"
+            className="border-[1px] border-[#C21F26]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -72,25 +71,28 @@ export default function Navigation({ user }) {
   return (
     <>
       <Link href="/">
-        <Image src={guildbanner} alt="Guild Banner" />
+        <Image class="flex w-24 m-0 p-0" src={guildbanner} alt="Guild Banner" />
       </Link>
-      <ul className={classes.list}>
+      <ul className="flex flex-wrap items-center justify-center gap-12 list-none text-white text-3xl">
         {filteredNavigation.map((navItem) => (
           <NavigationList
             {...navItem}
             key={navItem.id}
             isSelected={navItem.id === selectedId}
             onClick={() => handleSelect(navItem.id, navItem.name)}
+            className="flex flex-col sm:hidden max-sm:hidden xl:flex"
           />
         ))}
 
         <motion.button
-          className={classes.togglebutton}
+          className="xl:hidden"
           onClick={handleToggleOn}
           whileHover={{ cursor: "pointer" }}
         >
           {selectedId && (
-            <span className={classes.currentpage}>{selectedLabel}</span>
+            <span className="block text-white font-2xl m-2">
+              {selectedLabel}
+            </span>
           )}
           <GiHamburgerMenu color="white" size={35} />
         </motion.button>
@@ -102,30 +104,16 @@ export default function Navigation({ user }) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className={classes.hamburgerlist}
           >
             {filteredNavigation.map((navItem) => (
               <NavigationList
                 {...navItem}
                 key={navItem.id}
                 onClick={() => handleSelect(navItem.id, navItem.name)}
+                className="flex flex-col flex-wrap items-center gap-2 p-0 text-white"
               />
             ))}
           </motion.ul>
-          {/*<motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className={classes.hamburgeraccount}
-          >
-            <Tooltip position="bottom">
-              <Link href="/login">
-                <JoinButton className={classes.loginbutton} title="Login" />
-              </Link>
-            </Tooltip>
-            <Tooltip position="bottom">
-              <JoinButton className={classes.loginbutton} title="Logout" />
-            </Tooltip>
-          </motion.div>*/}
         </AnimatePresence>
       )}
     </>

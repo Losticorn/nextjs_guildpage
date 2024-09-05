@@ -2,14 +2,7 @@ import "react-tippy/dist/tippy.css";
 import "./globals.css";
 import Header from "./components/Header";
 import ReactQueryProvider from "./reactQueryProvider";
-import { Montaga } from "next/font/google";
 import Footer from "./components/Footer";
-
-const montagaFont = Montaga({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-montaga",
-});
 
 export const metadata = {
   title: "Dirty Zuk And The Boyz",
@@ -19,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={montagaFont.variable}>
+      <body class="bg-zinc-900 font-montaga">
         <Header />
         <ReactQueryProvider>{children}</ReactQueryProvider>
         <Footer />

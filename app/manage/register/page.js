@@ -1,18 +1,17 @@
 import { register } from "../../../action/user";
 import { getSession } from "../../../lib/getSession";
 import { redirect } from "next/navigation";
-import classes from "../../styles/Register.module.css";
 
 const Register = async () => {
   const { user } = await getSession();
   if (!user) redirect("/");
 
   return (
-    <main className={classes.main}>
+    <main className="main">
       <h1>Create new user</h1>
 
       <form action={register}>
-        <div className={classes.area}>
+        <div className="area">
           <label htmlFor="email">Email Address</label>
           <input
             id="email"
@@ -22,7 +21,7 @@ const Register = async () => {
           />
         </div>
 
-        <div className={classes.area}>
+        <div className="area">
           <label htmlFor="password">Password</label>
           <input
             id="password"
@@ -31,8 +30,8 @@ const Register = async () => {
             name="password"
           />
         </div>
-        <div className={classes.submitarea}>
-          <button className={classes.submitbtn}>Create user</button>
+        <div className="submitarea">
+          <button className="submitbtn">Create user</button>
         </div>
       </form>
     </main>

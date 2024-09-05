@@ -1,7 +1,7 @@
 import { login } from "../../action/user";
 import { redirect } from "next/navigation";
 import { getSession } from "../../lib/getSession";
-import classes from "../styles/LoginForm.module.css";
+
 import Button from "../components/Header/Buttons";
 
 const Login = async () => {
@@ -9,11 +9,11 @@ const Login = async () => {
   if (user) redirect("/");
 
   return (
-    <main className={classes.main}>
+    <main className="main">
       <h1>Login</h1>
 
-      <form className={classes.loginform} action={login}>
-        <div className={classes.area}>
+      <form className="loginform" action={login}>
+        <div className="area">
           <label htmlFor="email">Email</label>
           <input
             id="email"
@@ -23,7 +23,7 @@ const Login = async () => {
           />
         </div>
 
-        <div className={classes.area}>
+        <div className="area">
           <label htmlFor="email">Password</label>
           <input
             id="password"
@@ -32,8 +32,8 @@ const Login = async () => {
             name="password"
           />
         </div>
-        <div className={classes.submitarea}>
-          <Button className={classes.submitbtn} title="Login" />
+        <div className="submitarea">
+          <Button className="submitbtn" title="Login" />
         </div>
         <div />
       </form>

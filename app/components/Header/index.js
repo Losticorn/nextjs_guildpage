@@ -1,6 +1,5 @@
 import { getSession } from "../../../lib/getSession";
 import Navigation from "./Navigation";
-import classes from "../../styles/Navigation.module.css";
 import AuthButtons from "./AuthButtons";
 
 export default async function Header() {
@@ -8,8 +7,8 @@ export default async function Header() {
   console.log(user);
 
   return (
-    <header className={classes.header}>
-      <nav className={classes.navigation}>
+    <header class="flex justify-center m-0 p-2 flex-wrap bg-[#0f0f0f] text-8 border-b-[1px]">
+      <nav class="w-4/5 flex justify-between items-center max-sm:flex-col">
         <Navigation user={user} />
         <AuthButtons user={user} />
       </nav>

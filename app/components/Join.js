@@ -3,16 +3,14 @@
 import { motion } from "framer-motion";
 
 export default function JoinButton({
-  className,
   children,
   onClick,
   title,
-
   type = "button",
 }) {
   return (
     <motion.button
-      className={className}
+      class="px-8 py-4 text-3xl border-2 rounded-3xl text-white"
       whileHover={{
         scale: 1.1,
         cursor: "pointer",

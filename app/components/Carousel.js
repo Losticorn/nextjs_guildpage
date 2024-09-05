@@ -16,10 +16,10 @@ export const Carousel = ({ data }) => {
   };
 
   return (
-    <div className={classes.carousel}>
+    <div className="flex relative justify-center w-full h-full">
       <BsArrowLeftCircleFill
         onClick={prevSlide}
-        className={`${classes.arrow} ${classes.arrowleft}`}
+        className={`${"absolute w-6 h-6 text-[#ffffff] hover:cursor-pointer hover:text-white"} ${"left-2 top-1/2"}`}
       />
       {data.map((item, id) => {
         return (
@@ -28,26 +28,24 @@ export const Carousel = ({ data }) => {
             alt={item.alt}
             key={id}
             className={
-              slide === id
-                ? classes.slide
-                : `${classes.slide} ${classes.slidehidden}`
+              slide === id ? "rounded-3xl" : `${"rounded-3xl"} ${"hidden"}`
             }
           />
         );
       })}
       <BsArrowRightCircleFill
         onClick={nextSlide}
-        className={`${classes.arrow} ${classes.arrowright}`}
+        className={`${"absolute w-6 h-6 text-[#ffffff] hover:cursor-pointer hover:text-white"} ${"right-2 top-1/2"}`}
       />
-      <span className={classes.indicators}>
+      <span className="flex absolute bottom-4">
         {data.map((_, id) => {
           return (
             <button
               key={id}
               className={
                 slide === id
-                  ? classes.indicator
-                  : `${classes.indicator} ${classes.indicatorinactive}`
+                  ? "bg-white h-4 w-4 rounded-full border-none outline-none mx-1 my-1 cursor-pointer"
+                  : `${"bg-white h-4 w-4 rounded-full border-none outline-none mx-1 my-1 cursor-pointer"} ${"bg-[#808080]"}`
               }
               onClick={() => setSlide(id)}
             ></button>
