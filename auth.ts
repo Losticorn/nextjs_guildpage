@@ -1,19 +1,12 @@
-import NextAuth, { CredentialsSignin, DefaultSession } from "next-auth";
+import NextAuth, { CredentialsSignin } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { compare } from "bcryptjs";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "./lib/prisma";
-import { Role, User as PrismaUser } from "@prisma/client";
 
 interface UserCredentials {
   email?: string;
   password?: string;
-}
-
-declare module "next-auth"{
-  interface Session { user: {id: string, role: Role} & DefaultSession["user"]}
-  //interface User extends PrismaUser{} 
-  interface JWT { id: string, role: Role }
 }
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -67,16 +60,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   callbacks: {
     jwt({ token, user }) {
       if (user) {
-        token.id = user.id
-        //@ts-ignore
+        token.id = user.id;
         token.role = user.role;
       }
       return token;
     },
     session({ session, token }) {
-      //@ts-ignore
       session.user.id = token.id;
-      //@ts-ignore
       session.user.role = token.role;
       return session;
     },
