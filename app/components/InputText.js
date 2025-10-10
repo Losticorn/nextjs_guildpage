@@ -26,7 +26,7 @@ export default function InputText({
         className={
           invalid
             ? "text-red m-0 p-0 text-xl"
-            : "p-2 rounded-3xl text-white border-none placeholder:text-[#c2c2c2] placeholder:text-sm bg-[#505050]"
+            : "p-2 text-white border-none placeholder:text-[#c2c2c2] placeholder:text-sm bg-[#505050]"
         }
         id={id}
         {...rest}

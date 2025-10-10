@@ -25,15 +25,11 @@ const CardPlatformsListItem = ({ name, img, url }) => {
     <motion.div
       variants={item}
       whileHover={{ scale: 1.2 }}
-      className="flex flex-col flex-wrap text-center w-[10rem]"
+      className="flex flex-col flex-wrap text-center w-40"
     >
       <Tooltip title="Click to visit platform." position="top">
         <Link className="url" href={`${url}`} target="_blank">
-          <img
-            className="h-[160px] w-[160px] rounded-full"
-            src={img}
-            alt="picture"
-          ></img>
+          <img className="h-40 w-40 rounded-full" src={img} alt="picture"></img>
           <h2>{name}</h2>
         </Link>
       </Tooltip>
@@ -44,7 +40,7 @@ const CardPlatformsListItem = ({ name, img, url }) => {
 function CardPlatforms() {
   return (
     <motion.ul
-      className="flex flex-row flex-wrap justify-center m-0 mt-[5rem] p-0 gap-8"
+      className="flex flex-row flex-wrap justify-center m-0 mt-20 p-0 gap-8"
       variants={container}
       initial="hidden"
       animate="show"

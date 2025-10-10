@@ -10,6 +10,10 @@ module.exports = {
       fontFamily: {
         montaga: ["Montaga", "sans-serif"],
       },
+      colors: {
+        primary: "#A4161A",
+        secondary: "#808080",
+      },
     },
   },
   plugins: [],

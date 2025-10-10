@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body class="bg-zinc-900 font-montaga">
+      <body className="font-montaga">
         <Header />
         <ReactQueryProvider>{children}</ReactQueryProvider>
         <Footer />

@@ -19,8 +19,8 @@ function NavigationList({ path, name, id, isSelected, onClick, className }) {
         {isSelected && (
           <motion.div
             key={id}
-            layoutId="border-[1px] border-[#C21F26]"
-            className="border-[1px] border-[#C21F26]"
+            layoutId="border-[1px] border-[#D3D3D3]"
+            className="border-[1px] border-[#D3D3D3]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -69,25 +69,21 @@ export default function Navigation({ user }) {
   }, [user]);
 
   return (
-    <>
-      <Link href="/">
-        <Image class="flex w-24 m-0 p-0" src={guildbanner} alt="Guild Banner" />
-      </Link>
-      <ul className="flex flex-wrap items-center justify-center gap-12 list-none text-white text-3xl">
+    <div className="w-full">
+      <ul className="flex flex-wrap justify-end gap-12 list-none text-white text-3xl font-medium">
         {filteredNavigation.map((navItem) => (
           <NavigationList
             {...navItem}
             key={navItem.id}
             isSelected={navItem.id === selectedId}
             onClick={() => handleSelect(navItem.id, navItem.name)}
-            className="flex flex-col sm:hidden max-sm:hidden xl:flex"
+            className="xl:flex-col hidden xl:flex"
           />
         ))}
 
         <motion.button
-          className="xl:hidden"
+          className="xl:hidden cursor-pointer"
           onClick={handleToggleOn}
-          whileHover={{ cursor: "pointer" }}
         >
           {selectedId && (
             <span className="block text-white font-2xl m-2">
@@ -116,6 +112,6 @@ export default function Navigation({ user }) {
           </motion.ul>
         </AnimatePresence>
       )}
-    </>
+    </div>
   );
 }

@@ -12,7 +12,7 @@ export default function Contact() {
           <h1 className="text-6xl py-4 text-white my-6 text-center">
             Reach out to us!
           </h1>
-          <p className="text-xl rounded-3xl mb-[5rem] text-[#c7c7c7] bg-[#101010] p-6 rounded-3xl">
+          <p className="text-xl mb-[5rem] text-[#c7c7c7] bg-[#101010] p-6 rounded-3xl">
             If you're interested in joining us or have any questions, feel free
             to reach out to any member of the officer team <i>via </i>
             Discord. We look forward to hearing from you!

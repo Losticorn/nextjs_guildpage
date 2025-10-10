@@ -35,7 +35,7 @@ export default function InputText({
         {options.map((option, index) => (
           <div className="flex items-center gap-1" key={option}>
             <input
-              className="w-4 h-4"
+              className="w-6 h-6"
               onChange={(e) => {
                 const selectedValue = e.target.value;
                 setValue(selectedValue);

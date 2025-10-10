@@ -25,7 +25,7 @@ export default function InputSelect({
         {label}
       </label>
       <select
-        className="p-2 rounded-3xl border-none text-white bg-[#505050]"
+        className="p-2 rounded-none border-none text-white bg-[#505050]"
         id={id}
         onChange={onChange}
         {...rest}

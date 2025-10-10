@@ -9,6 +9,10 @@ import InputText from "../../components/InputText";
 import InputRadio from "../../components/InputRadio";
 import InputSelect from "../../components/InputSelect";
 import { useRouter } from "next/navigation";
+
+import { cn } from "../../../utils/cn";
+import { SectionTitle } from "../SectionTitle";
+import { Container } from "../Container";
 import Area from "../Area";
 
 async function addApplicationHandler(enteredApplicationData) {
@@ -95,40 +99,43 @@ export default function ApplicationForm() {
   }
 
   return (
-    <main className="flex flex-col justify-center items-center m-auto max-w-[1500px]">
-      <h1 className="text-6xl py-4 text-white my-6 ">Application Form</h1>
+    <Container className={cn("flex flex-col items-center")}>
+      <SectionTitle sectionTitle="APPLICATION" />
+
       <form
-        className="flex flex-col items-center rounded-3xl mb-4"
+        className="flex flex-col max-w-2xl w-full"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <Area>
-          <InputText
-            id="name"
-            name="name"
-            control={control}
-            label="Name"
-            placeholder="Enter your name"
-            rules={{ required: "Name is required" }}
-          />
-          {errors.name && (
-            <p className={classes.error}>{errors.name.message}</p>
-          )}
-        </Area>
-        <Area>
-          <InputText
-            id="discord"
-            name="discord"
-            control={control}
-            label="Discord"
-            placeholder="Enter your Discord ID"
-            rules={{ required: "Discord ID is required" }}
-          />
-          {errors.discord && (
-            <p className={classes.error}>{errors.discord.message}</p>
-          )}
-        </Area>
+        <div className="flex">
+          <Area>
+            <InputText
+              id="name"
+              name="name"
+              control={control}
+              label="Name"
+              placeholder="Enter your name"
+              rules={{ required: "Name is required" }}
+            />
+            {errors.name && (
+              <p className={classes.error}>{errors.name.message}</p>
+            )}
+          </Area>
+          <Area>
+            <InputText
+              id="discord"
+              name="discord"
+              control={control}
+              label="Discord"
+              placeholder="Enter your Discord ID"
+              rules={{ required: "Discord ID is required" }}
+            />
+            {errors.discord && (
+              <p className={classes.error}>{errors.discord.message}</p>
+            )}
+          </Area>
+        </div>
 
-        <Area>
+        <Area className={cn("flex flex-col items-center")}>
           <InputRadio
             id="raidtype"
             label="What level of raiding are you interested in?"
@@ -141,34 +148,35 @@ export default function ApplicationForm() {
             <p className={classes.error}>{errors.raidtype.message}</p>
           )}
         </Area>
+        <div className="flex">
+          <Area>
+            <InputSelect
+              id="role"
+              label="Choose your role:"
+              options={["Tank", "Healer", "DPS"]}
+              control={control}
+              name="role"
+              rules={{ required: "Role is required" }}
+            />
+            {errors.role && (
+              <p className={classes.error}>{errors.role.message}</p>
+            )}
+          </Area>
 
-        <Area>
-          <InputSelect
-            id="role"
-            label="Choose your role:"
-            options={["Tank", "Healer", "DPS"]}
-            control={control}
-            name="role"
-            rules={{ required: "Role is required" }}
-          />
-          {errors.role && (
-            <p className={classes.error}>{errors.role.message}</p>
-          )}
-        </Area>
-
-        <Area>
-          <InputSelect
-            id="main"
-            label="Choose your main:"
-            options={roleClasses}
-            control={control}
-            name="main"
-            rules={{ required: "Main is required" }}
-          />
-          {errors.main && (
-            <p className={classes.error}>{errors.main.message}</p>
-          )}
-        </Area>
+          <Area>
+            <InputSelect
+              id="main"
+              label="Choose your main:"
+              options={roleClasses}
+              control={control}
+              name="main"
+              rules={{ required: "Main is required" }}
+            />
+            {errors.main && (
+              <p className={classes.error}>{errors.main.message}</p>
+            )}
+          </Area>
+        </div>
 
         <Area>
           <InputText
@@ -184,7 +192,7 @@ export default function ApplicationForm() {
           )}
         </Area>
 
-        <Area>
+        <Area className={cn("flex flex-col items-center")}>
           <InputRadio
             id="mic"
             label="Do you have a working microphone?"
@@ -201,17 +209,17 @@ export default function ApplicationForm() {
             id="ui"
             name="ui"
             control={control}
-            label="UI in the raid encounter. You can use online tools (i.e. Gyazo etc.)"
+            label="Please share your UI in the raid encounter (e.g. Gyazo)."
             placeholder="Enter link"
             rules={{ required: "UI screenshot link is required" }}
           />
           {errors.ui && <p className={classes.error}>{errors.ui.message}</p>}
         </Area>
 
-        <Area>
+        <Area className={cn("flex flex-col items-center text-center")}>
           <InputRadio
             id="attendance"
-            label="We raid on Monday and Wednesday, 20:00-23:00 CEST. Are you sure you can commit to this schedule?"
+            label="We raid on Monday and Wednesday, 20:00-23:00 CEST. Can you commit to this schedule?"
             options={["Yes", "No"]}
             control={control}
             name="attendance"
@@ -229,11 +237,12 @@ export default function ApplicationForm() {
 
         <div className="flex flex-col items-center p-4 m-2 text-white rounded-3xl">
           <button
-            className={
+            className={cn(
+              "rounded-3xl text-xl w-full px-12 py-2 border",
               isPending
-                ? "bg-lime-400 text-black px-12 py-2 border-[1px] border-black rounded-3xl text-xl w-full"
-                : "bg-transparent text-white px-12 py-2 border-[1px] border-white rounded-3xl text-xl w-full hover-bg-white hover-bg-black hover-pointer"
-            }
+                ? "bg-lime-400 text-black border-black"
+                : "bg-transparent text-white border-white hover-bg-white hover-bg-black hover-pointer"
+            )}
             type="submit"
             title="Submit"
             disabled={!isCaptchaVerified}
@@ -242,6 +251,6 @@ export default function ApplicationForm() {
           </button>
         </div>
       </form>
-    </main>
+    </Container>
   );
 }

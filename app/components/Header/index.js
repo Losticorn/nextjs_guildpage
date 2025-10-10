@@ -7,10 +7,10 @@ export default async function Header() {
   console.log(user);
 
   return (
-    <header class="flex justify-center m-0 p-2 flex-wrap bg-[#0f0f0f] text-8 border-b-[1px]">
-      <nav class="w-4/5 flex justify-between items-center max-sm:flex-col">
+    <header className="flex justify-center flex-wrap header_bg_img">
+      <nav className="w-[1400px] flex items-center justify-between py-6">
         <Navigation user={user} />
-        <AuthButtons user={user} />
+        {/*<AuthButtons user={user} />*/}
       </nav>
     </header>
   );

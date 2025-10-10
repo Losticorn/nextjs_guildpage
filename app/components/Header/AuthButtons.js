@@ -9,7 +9,7 @@ export default async function AuthButtons({ user }) {
     <div>
       {!user ? (
         <Link href="/login">
-          <Button title="Login">
+          <Button className="border-blue-500" title="Login">
             <CiLogin />
           </Button>
         </Link>
